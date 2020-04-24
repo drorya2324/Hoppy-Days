@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Script/Enemies/Hazards.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Environment/spikes_bottom.png" type="Texture" id=2]
+
+[node name="SpikesBottom" type="Area2D"]
+collision_layer = 4
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.952941, 0.0392157, 0.0392157, 1 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -47.7268, -26.8242, 46.4798, -26.8242, 32.9769, 24.3614, 32.2441, 25.9315, 26.9058, 25.9315, 25.9637, 24.7801, 14.6589, -20.0204, 13.9262, -19.9157, 3.24944, 24.3614, 2.51672, 25.9315, -2.92632, 26.2455, -3.97307, 24.8847, -15.3825, -20.0204, -15.9059, -20.2298, -26.5827, 23.838, -27.9434, 25.9315, -33.4911, 26.0362, -34.5379, 24.152 )
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LifeUp4.wav-853ac47a2f1c1e76daf0beac31cf2b55.sample"
+
+[deps]
+
+source_file="res://SFX/LifeUp/LifeUp4.wav"
+dest_files=[ "res://.import/LifeUp4.wav-853ac47a2f1c1e76daf0beac31cf2b55.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

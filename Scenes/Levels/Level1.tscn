@@ -1,0 +1,179 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scenes/terrain/PlatformTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Camera2D.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/enemies/SpikesTop.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/enemies/SpikesBottom.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/pickups/Portal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Script/GameState.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/pickups/Coin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=9]
+[ext_resource path="res://SFX/jump1.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Script/Player/Jump_SFX.gd" type="Script" id=11]
+[ext_resource path="res://SFX/coin_SFX.wav" type="AudioStream" id=12]
+[ext_resource path="res://SFX/pain.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Script/pickups/Coin_SFX.gd" type="Script" id=14]
+[ext_resource path="res://Script/Player/Pain_SFX.gd" type="Script" id=15]
+[ext_resource path="res://Scenes/pickups/JumpPad.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/enemies/Spikeman.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/enemies/Cloud.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/terrain/Wall_Left.tscn" type="PackedScene" id=19]
+[ext_resource path="res://SFX/LifeUp/LifeUp3.wav" type="AudioStream" id=20]
+[ext_resource path="res://Script/pickups/LifeUp_SFX.gd" type="Script" id=21]
+[ext_resource path="res://Script/pickups/JumpPad_SFX.gd" type="Script" id=22]
+[ext_resource path="res://SFX/JumpPad_SFX.wav" type="AudioStream" id=23]
+
+[node name="Level1" type="Node2D"]
+position = Vector2( 0.790527, 12.3314 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 155.723, 381.585 )
+
+[node name="Camera2D" parent="Player" instance=ExtResource( 3 )]
+limit_left = 63
+limit_bottom = 3000
+
+[node name="Spikes" type="Node2D" parent="."]
+
+[node name="SpikesTop2" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1471.29, 428.004 )
+
+[node name="SpikesTop6" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 2215.16, 1123.53 )
+
+[node name="SpikesTop7" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 1473.41, 934.712 )
+
+[node name="SpikesBottom" parent="Spikes" instance=ExtResource( 5 )]
+position = Vector2( 2733.25, 562.575 )
+
+[node name="Coins" type="Node2D" parent="."]
+position = Vector2( 30.1052, -186.653 )
+
+[node name="Coin" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2659.46, 288.901 )
+frame = 3
+
+[node name="Coin2" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1448.2, -85.5714 )
+frame = 2
+
+[node name="Coin3" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 1901.19, 174.041 )
+frame = 3
+
+[node name="Coin4" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 3593.06, 507.037 )
+frame = 3
+
+[node name="Coin5" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 2479.97, 846.831 )
+frame = 3
+
+[node name="Coin6" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 5235.72, 655.989 )
+frame = 3
+
+[node name="Coin14" parent="Coins" instance=ExtResource( 8 )]
+position = Vector2( 4826.76, -674.859 )
+frame = 3
+
+[node name="Souds" type="Node2D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource( 9 )
+volume_db = -12.0
+autoplay = true
+
+[node name="Jump_SFX" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource( 10 )
+volume_db = -17.0
+script = ExtResource( 11 )
+
+[node name="Pain_SFX" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+script = ExtResource( 15 )
+
+[node name="Coin_SFX" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource( 12 )
+script = ExtResource( 14 )
+
+[node name="LifeUp_SFX" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource( 20 )
+script = ExtResource( 21 )
+
+[node name="JumpPad_SFX" type="AudioStreamPlayer" parent="Souds"]
+stream = ExtResource( 23 )
+script = ExtResource( 22 )
+
+[node name="JumpPads" type="Node2D" parent="."]
+position = Vector2( 18.0498, 55.955 )
+
+[node name="JumpPad" parent="JumpPads" instance=ExtResource( 16 )]
+position = Vector2( 1062.95, 557.578 )
+
+[node name="JumpPad2" parent="JumpPads" instance=ExtResource( 16 )]
+position = Vector2( 6838.16, 171.968 )
+
+[node name="JumpPad3" parent="JumpPads" instance=ExtResource( 16 )]
+position = Vector2( 3887.28, -275.809 )
+
+[node name="NPCs" type="Node2D" parent="."]
+position = Vector2( 139.041, 546.435 )
+
+[node name="Spikeman" parent="NPCs" instance=ExtResource( 17 )]
+position = Vector2( 1335.5, 335.868 )
+
+[node name="Spikeman2" parent="NPCs" instance=ExtResource( 17 )]
+position = Vector2( 5355.33, -879.498 )
+
+[node name="Cloud" parent="NPCs" instance=ExtResource( 18 )]
+position = Vector2( 2297.69, -672.276 )
+
+[node name="Cloud2" parent="NPCs" instance=ExtResource( 18 )]
+position = Vector2( 5183.55, -1616.44 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall_Left5" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 30.3221, -959.983 )
+
+[node name="Wall_Left4" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 36.8292, -322.289 )
+
+[node name="Wall_Left" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 46.5898, 312.152 )
+
+[node name="Wall_Left2" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 49.5287, 910.088 )
+
+[node name="Wall_Left3" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 50.8996, 1459.48 )
+
+[node name="Wall_Left6" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 50.917, 2046.31 )
+
+[node name="Wall_Left7" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 48.9837, 2576.17 )
+
+[node name="Wall_Left8" parent="Walls" instance=ExtResource( 19 )]
+position = Vector2( 50.5321, 3175.95 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 3.57628e-07, 2.09808e-05 )
+tile_set = ExtResource( 1 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -589751, 2, 0, -262061, 2, 0, -196552, 2, 0, -65443, 2, 0, 196654, 2, 0, 262174, 2, 0, 262246, 2, 0, 458772, 2, 0, 458792, 2, 0, 589946, 0, 0, 655361, 2, 0, 655372, 2, 0, 655414, 2, 0, 655429, 3, 0, 655439, 2, 0, 655455, 2, 0, 786476, 2, 0, 852004, 3, 0, 852005, 3, 0, 983060, 2, 0, 1179678, 2, 0 )
+
+[node name="portal" type="Node2D" parent="."]
+
+[node name="Portal" parent="portal" instance=ExtResource( 6 )]
+position = Vector2( 8004.49, 434.098 )
+[connection signal="body_entered" from="portal/Portal" to="." method="_on_Portal_body_entered"]

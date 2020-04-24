@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GFX/HUD/lifes.png" type="Texture" id=3]
+[ext_resource path="res://Script/Levels/GameOver.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 75
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.09094
+margin_right = 3.09094
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.6143
+margin_top = 4.20474
+margin_right = 12.6143
+margin_bottom = 4.20471
+texture = ExtResource( 1 )
+expand = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.614
+margin_top = -197.624
+margin_right = 12.614
+margin_bottom = -197.624
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameOverLable" type="Label" parent="CenterContainer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 79.0
+margin_top = 257.0
+margin_right = 1287.0
+margin_bottom = 511.0
+custom_fonts/font = SubResource( 1 )
+text = "Game Over!"
+
+[node name="TryAgainButton" type="TextureButton" parent="."]
+modulate = Color( 0.878431, 0.286275, 0.929412, 0.945098 )
+self_modulate = Color( 0.933333, 0.819608, 0.992157, 1 )
+anchor_right = 0.038
+anchor_bottom = 0.092
+margin_left = 290.873
+margin_top = 269.794
+margin_right = 342.965
+margin_bottom = 341.138
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TryAgainLable" type="Label" parent="TryAgainButton"]
+margin_left = 116.443
+margin_top = 61.6463
+margin_right = 643.443
+margin_bottom = 151.646
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.298039, 0.184314, 0.027451, 1 )
+text = "Try Again!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitGameBotton" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0.92549 )
+self_modulate = Color( 0.941176, 0.0352941, 0.0352941, 1 )
+anchor_right = 0.038
+anchor_bottom = 0.092
+margin_left = 293.984
+margin_top = 467.008
+margin_right = 346.076
+margin_bottom = 538.352
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitGameLable" type="Label" parent="ExitGameBotton"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 116.443
+margin_top = 61.6463
+margin_right = 643.443
+margin_bottom = 151.646
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.298039, 0.184314, 0.027451, 1 )
+text = "Exit Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="TryAgainButton" to="." method="_on_TryAgainButton_pressed"]
+[connection signal="pressed" from="ExitGameBotton" to="." method="_on_ExitGameBotton_pressed"]

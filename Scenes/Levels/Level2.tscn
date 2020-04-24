@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Script/Levels/Level2.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/enemies/SpikesTop.tscn" type="PackedScene" id=4]
+
+[node name="Level2" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="SpikesTop2" parent="Spikes" index="0"]
+position = Vector2( 728.056, 613.627 )
+
+[node name="SpikesTop6" parent="Spikes" index="1"]
+position = Vector2( 1529.08, 1508.52 )
+
+[node name="SpikesTop7" parent="Spikes" index="2"]
+position = Vector2( 3263.89, 932.062 )
+
+[node name="SpikesBottom" parent="Spikes" index="3"]
+position = Vector2( 1910, 372.254 )
+
+[node name="SpikesTop" parent="Spikes" index="4" instance=ExtResource( 4 )]
+position = Vector2( 1988.6, 614.48 )
+
+[node name="SpikesTop3" parent="Spikes" index="5" instance=ExtResource( 4 )]
+position = Vector2( 1895.29, 614.48 )
+
+[node name="SpikesTop4" parent="Spikes" index="6" instance=ExtResource( 4 )]
+position = Vector2( 1809.35, 613.252 )
+
+[node name="Coin" parent="Coins" index="0"]
+position = Vector2( 1876.75, 316.855 )
+
+[node name="Coin2" parent="Coins" index="1"]
+position = Vector2( 1201.27, 1507.81 )
+
+[node name="Coin3" parent="Coins" index="2"]
+position = Vector2( 2315.84, -706.513 )
+
+[node name="Coin4" parent="Coins" index="3"]
+position = Vector2( 5028.04, -126.589 )
+
+[node name="Coin5" parent="Coins" index="4"]
+position = Vector2( 1725.75, 1125.7 )
+
+[node name="Coin6" parent="Coins" index="5"]
+position = Vector2( 3597.53, 147.288 )
+
+[node name="Coin14" parent="Coins" index="6"]
+position = Vector2( 4139.27, -682.252 )
+
+[node name="JumpPad" parent="JumpPads" index="0"]
+position = Vector2( 5627.77, 428.299 )
+
+[node name="JumpPad2" parent="JumpPads" index="1"]
+position = Vector2( 5600.51, -82.224 )
+
+[node name="JumpPad3" parent="JumpPads" index="2"]
+position = Vector2( 3815.05, -405.006 )
+
+[node name="Spikeman" parent="NPCs" index="0"]
+position = Vector2( 1400.73, 14.3961 )
+
+[node name="Spikeman2" parent="NPCs" index="1"]
+position = Vector2( 3491.56, -496.097 )
+
+[node name="Cloud" parent="NPCs" index="2"]
+position = Vector2( 2309.4, -1564.8 )
+
+[node name="Cloud2" parent="NPCs" index="3"]
+position = Vector2( 4085.31, -1530.64 )
+
+[node name="TileMap" parent="." index="7"]
+tile_data = PoolIntArray( -720862, 0, 0, -720847, 0, 0, -720834, 0, 0, -327621, 0, 0, -262098, 0, 0, -196542, 1, 0, 36, 0, 0, 71, 0, 0, 77, 0, 0, 83, 0, 0, 131118, 1, 0, 131126, 0, 0, 262171, 0, 0, 262245, 0, 0, 262256, 1, 0, 524359, 0, 0, 524365, 0, 0, 524371, 0, 0, 589946, 6, 0, 655361, 0, 0, 655367, 0, 0, 655373, 0, 0, 655379, 0, 0, 655385, 0, 0, 655391, 0, 0, 852007, 0, 0, 852063, 1, 0, 852086, 1, 0, 852100, 1, 0, 983086, 0, 0, 1114138, 1, 0, 1114166, 0, 0, 1376301, 0, 0, 1572882, 0, 0, 1572888, 0, 0, 1572894, 0, 0, 1572900, 0, 0 )
+
+[node name="Portal" parent="portal" index="0"]
+position = Vector2( 7994.46, 483.771 )

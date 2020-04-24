@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GFX/Items/spring.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Items/spring_in.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Items/spring_out.png" type="Texture" id=3]
+[ext_resource path="res://Script/pickups/JumpPad.gd" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "spring",
+"speed": 5.0
+} ]
+
+[node name="JumpPad" type="Area2D"]
+position = Vector2( 0, -0.323532 )
+collision_layer = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2( 6.81935, 11.3802 )
+polygon = PoolVector2Array( -71.894, 3.97002, -75.3518, 1.04689, -76.7777, -2.09012, -78.7027, -24.7978, -78.993, -35.5809, -76.9198, -37.8844, -74.6163, -39.4507, -57.9861, -39.3202, -45.0396, -39.5429, -45.1778, -38.7136, 6.60462, -38.5294, 6.7889, -37.7462, 45.5796, -37.4698, 60.0033, -37.3459, 63.8232, -35.8113, 66.1728, -32.6324, 66.2189, 2.28844, 64.8368, 4.96048, 62.2108, 6.52686, 29.0948, 6.69674, 29.2268, 10.7869, 27.5775, 13.4257, 22.4978, 17.6479, -30.3936, 17.5159, -33.8241, 14.8111, -36.7268, 11.1168, -37.6504, 5.04748, -67.9727, 4.68298 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="body_entered" from="." to="." method="_on_JumpPad_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

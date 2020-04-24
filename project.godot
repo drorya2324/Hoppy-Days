@@ -16,8 +16,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Hoppy Days"
-run/main_scene="res://Scenes/Player.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/Levels/Level1.tscn"
+
+[autoload]
+
+Global="*res://Script/Global.gd"
+
+[display]
+
+window/size/width=1366
+window/size/height=768
+window/stretch/aspect="expand"
 
 [input]
 
@@ -49,6 +58,14 @@ ui_up={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Terrain"
+2d_physics/layer_3="Enemies"
+2d_physics/layer_4="PickUps"
+
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+quality/intended_usage/framebuffer_allocation=0
+quality/2d/use_pixel_snap=true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GFX/Environment/ground_grass.png" type="Texture" id=1]
+
+[node name="Wall_Left" type="Sprite"]
+rotation = -1.5708
+scale = Vector2( 2, 1 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( 183.816, -44.8832, 189.661, -31.5217, 190.496, -18.1603, 158.763, 33.6152, -161.076, 46.9767, -191.14, -13.1498, -189.469, -33.1919, -184.459, -41.5428, -176.943, -44.8832 )

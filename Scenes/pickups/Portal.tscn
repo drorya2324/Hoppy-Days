@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/enemies/SpikesTop.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GFX/Items/portal_yellow.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Particles/portal_yellowParticle.png" type="Texture" id=3]
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 20.0
+flag_disable_z = true
+direction = Vector3( 0, 100, 0 )
+spread = 1.0
+gravity = Vector3( 0, 50, 0 )
+initial_velocity = 100.0
+initial_velocity_random = 1.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+linear_accel_random = 1.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+angle = 10000.0
+angle_random = 1.0
+
+[sub_resource type="Animation" id=1]
+resource_name = "portal_float"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.25, 0.75 ) ]
+}
+
+[node name="Portal" instance=ExtResource( 1 )]
+position = Vector2( -2.40155, -0.930828 )
+collision_layer = 8
+script = null
+
+[node name="Particles2D" type="Particles2D" parent="." index="0"]
+position = Vector2( 10.9818, -101.831 )
+amount = 14
+lifetime = 1.5
+speed_scale = 0.65
+visibility_rect = Rect2( -100, -100, 200, 200 )
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="1"]
+modulate = Color( 1, 1, 1, 1 )
+scale = Vector2( 1.0583, 0.941703 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" parent="." index="2"]
+rotation = 1.5708
+scale = Vector2( 1.086, 1 )
+polygon = PoolVector2Array( -3.46053, 114.415, -9.56084, 110.55, -14.3055, 106.318, -17.8641, 101.717, -20.5753, 96.3803, -23.7949, 89.3873, -26.1673, 82.7624, -29.048, 73.9291, -31.2509, 64.5438, -33.4537, 54.6064, -35.3177, 43.3808, -36.5039, 32.1552, -37.3597, 21.8234, -37.6901, -20.8444, -36.6734, -31.7019, -35.4872, -43.2956, -33.7927, -54.7052, -32.6065, -62.0662, -30.0647, -72.5557, -27.5229, -80.6529, -24.1338, -90.0382, -19.728, -99.2395, -14.9834, -106.601, -9.05249, -112.673, -5.15507, -114.33, 0.945248, -115.25, 4.33431, -114.698, 9.079, -112.489, 13.3153, -108.257, 18.06, -102.368, 21.788, -94.8229, 25.516, -85.6216, 28.5661, -77.5244, 30.4301, -70.3474, 32.4635, -60.0419, 34.1581, -51.5767, 35.8526, -39.9831, 37.2082, -28.5735, 37.7166, -24.3409, 37.8861, 18.7213, 37.2082, 26.0823, 35.8526, 39.1482, 34.1581, 51.662, 30.769, 67.3042, 27.38, 80.002, 23.8214, 90.1234, 19.2462, 99.3248, 13.6542, 107.974, 7.38448, 112.391, 3.14815, 114.783 )
+one_way_collision_margin = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "portal_float"
+playback_speed = 2.0
+anims/portal_float = SubResource( 1 )
+[connection signal="body_entered" from="." to="." method="_on_Portal_body_entered"]
